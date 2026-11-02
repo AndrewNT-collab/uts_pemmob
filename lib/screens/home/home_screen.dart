@@ -1,7 +1,11 @@
+
 import 'package:flutter/material.dart';
+
+import '../profile/profile_screen.dart';
 import '../search/search_screen.dart';
 import '../items/factory_database_screen.dart';
 import '../areas/areas_screen.dart';
+import '../machines/machines_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -136,6 +140,68 @@ class HomeScreen extends StatelessWidget {
                               color: muted,
                               fontSize: 11,
                             ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+
+                  const SizedBox(height: 12),
+
+                  // Machines Catalogue Shortcut
+                  InkWell(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (_) => const MachinesScreen(),
+                        ),
+                      );
+                    },
+                    borderRadius: BorderRadius.circular(4),
+                    child: Container(
+                      width: double.infinity,
+                      padding: const EdgeInsets.all(12),
+                      decoration: BoxDecoration(
+                        color: const Color(0xE6202326),
+                        border: Border.all(color: border),
+                        borderRadius: BorderRadius.circular(4),
+                      ),
+                      child: const Row(
+                        children: [
+                          Icon(
+                            Icons.precision_manufacturing_outlined,
+                            color: yellow,
+                            size: 23,
+                          ),
+                          SizedBox(width: 11),
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Machines Catalogue',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w700,
+                                  ),
+                                ),
+                                SizedBox(height: 3),
+                                Text(
+                                  'Browse factory machines',
+                                  style: TextStyle(
+                                    color: muted,
+                                    fontSize: 10,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Icon(
+                            Icons.chevron_right,
+                            color: Colors.white70,
+                            size: 21,
                           ),
                         ],
                       ),
@@ -419,30 +485,37 @@ class _HomeBottomNavigation extends StatelessWidget {
 
               return Expanded(
                 child: InkWell(
-                    onTap: () {
-                      if (index == 1) {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (_) => const SearchScreen(),
-                          ),
-                        );
-                      } else if (index == 2) {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (_) => const FactoryDatabaseScreen(),
-                          ),
-                        );
-                      } else if (index == 3) {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (_) => const AreasScreen(),
-                          ),
-                        );
-                      }
-                    },
+                  onTap: () {
+                    if (index == 1) {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (_) => const SearchScreen(),
+                        ),
+                      );
+                    } else if (index == 2) {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (_) => const FactoryDatabaseScreen(),
+                        ),
+                      );
+                    } else if (index == 3) {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (_) => const AreasScreen(),
+                        ),
+                      );
+                    } else if (index == 4) {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (_) => const ProfileScreen(),
+                        ),
+                      );
+                    }
+                  },
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [

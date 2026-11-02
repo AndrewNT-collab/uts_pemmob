@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 
 class AreasScreen extends StatelessWidget {
@@ -179,96 +180,38 @@ class PACSelectionScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
-              'Select Area',
-              style: TextStyle(
+            Text(
+              region.toUpperCase(),
+              style: const TextStyle(
                 color: Colors.white,
-                fontSize: 25,
+                fontSize: 23,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            const SizedBox(height: 8),
-            Text(
-              'Choose an area in $region.',
-              style: const TextStyle(
-                color: Colors.white70,
-                fontSize: 14,
+            const SizedBox(height: 18),
+            Container(
+              width: double.infinity,
+              height: 220,
+              alignment: Alignment.center,
+              decoration: BoxDecoration(
+                color: const Color(0xFF292D30),
+                border: Border.all(
+                  color: const Color(0xFFFFC928),
+                  width: 1,
+                ),
+                borderRadius: BorderRadius.circular(5),
               ),
-            ),
-            const SizedBox(height: 25),
-            _PACCard(
-              name: 'Main PAC',
-              onTap: () => _showSelection(context, 'Main PAC'),
-            ),
-            const SizedBox(height: 16),
-            _PACCard(
-              name: 'Sub PAC',
-              onTap: () => _showSelection(context, 'Sub PAC'),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  void _showSelection(BuildContext context, String area) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text('$area selected in $region'),
-        backgroundColor: const Color(0xFF292D30),
-      ),
-    );
-  }
-}
-
-class _PACCard extends StatelessWidget {
-  final String name;
-  final VoidCallback onTap;
-
-  const _PACCard({
-    required this.name,
-    required this.onTap,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Material(
-      color: const Color(0xFF292D30),
-      borderRadius: BorderRadius.circular(14),
-      child: InkWell(
-        onTap: onTap,
-        borderRadius: BorderRadius.circular(14),
-        child: Container(
-          width: double.infinity,
-          padding: const EdgeInsets.all(20),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(14),
-            border: Border.all(color: Colors.white12),
-          ),
-          child: Row(
-            children: [
-              const Icon(
-                Icons.location_on_outlined,
-                color: Color(0xFFFFC928),
-                size: 28,
-              ),
-              const SizedBox(width: 14),
-              Expanded(
-                child: Text(
-                  name,
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 17,
-                    fontWeight: FontWeight.bold,
-                  ),
+              child: const Text(
+                'MAP',
+                style: TextStyle(
+                  color: Color(0xFFFFC928),
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                  letterSpacing: 3,
                 ),
               ),
-              const Icon(
-                Icons.chevron_right,
-                color: Color(0xFFFFC928),
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
