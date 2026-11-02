@@ -1,6 +1,7 @@
-
 import 'package:flutter/material.dart';
 import '../search/search_screen.dart';
+import '../items/factory_database_screen.dart';
+import '../areas/areas_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -418,25 +419,30 @@ class _HomeBottomNavigation extends StatelessWidget {
 
               return Expanded(
                 child: InkWell(
-                  onTap: () {
-                    if (index == 1) {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (_) => const SearchScreen(),
-                        ),
-                      );
-                    } else if (!selected) {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(
-                          content: Text(
-                            '${item.$2} page coming soon.',
+                    onTap: () {
+                      if (index == 1) {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (_) => const SearchScreen(),
                           ),
-                          duration: const Duration(seconds: 1),
-                        ),
-                      );
-                    }
-                  },
+                        );
+                      } else if (index == 2) {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (_) => const FactoryDatabaseScreen(),
+                          ),
+                        );
+                      } else if (index == 3) {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (_) => const AreasScreen(),
+                          ),
+                        );
+                      }
+                    },
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
